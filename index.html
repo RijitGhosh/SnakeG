@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Snake — Neon Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage">
+    <header class="hud">
+      <div class="hud__brand">
+        <span class="hud__mark" aria-hidden="true"></span>
+        <h1>SNAKE</h1>
+      </div>
+      <div class="hud__stats">
+        <div class="stat">
+          <span class="stat__label">Score</span>
+          <span class="stat__value" id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Best</span>
+          <span class="stat__value stat__value--muted" id="best">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Length</span>
+          <span class="stat__value stat__value--muted" id="length">3</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="board-wrap">
+      <canvas id="board" width="600" height="600" aria-label="Snake game board" role="img"></canvas>
+
+      <div class="overlay" id="overlay" data-visible="true">
+        <div class="overlay__card">
+          <p class="overlay__eyebrow" id="overlayEyebrow">Ready</p>
+          <h2 class="overlay__title" id="overlayTitle">Press space to start</h2>
+          <p class="overlay__body" id="overlayBody">
+            Arrow keys or <kbd>WASD</kbd> to steer. Eat the fruit, don't bite yourself.
+          </p>
+          <button class="btn" id="playBtn" type="button">Play</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="controls">
+      <div class="keys" aria-hidden="true">
+        <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd>
+        <span class="keys__sep"></span>
+        <kbd>Space</kbd><span class="keys__hint">pause</span>
+      </div>
+      <p class="tip">Tip: the grid wraps around the edges.</p>
+    </footer>
+
+    <div class="touchpad" id="touchpad" aria-hidden="true">
+      <button class="touchpad__btn" data-dir="up" type="button">↑</button>
+      <button class="touchpad__btn" data-dir="left" type="button">←</button>
+      <button class="touchpad__btn" data-dir="down" type="button">↓</button>
+      <button class="touchpad__btn" data-dir="right" type="button">→</button>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
